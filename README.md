@@ -5,9 +5,9 @@ The project's objective is to utilize the AutoEncoder architecture to detect ano
 ## Dataset Description:
 
 - The dataset has been taken from Yahoo Webscope program. It consists of time-series data with labeled anomalies. The data represents real production traffic of some Yahoo properties. The dataset comprises of three columns, namely:
-  • timestamp: in the dataset, it is replaced by integers incremented by 1, which represents 1 hour worth of data.;
-  • value: value recorded at the corresponding timestamp.; and
-  • is_anomaly: Boolean indicating if the current value at the given timestamp is an anomaly or not.
+  - _timestamp_: in the dataset, it is replaced by integers incremented by 1, which represents 1 hour worth of data;
+  - _value_: value recorded at the corresponding timestamp; and
+  - _is_anomaly_: Boolean indicating if the current value at the given timestamp is an anomaly or not
 - Dataset Link: <a href = "https://webscope.sandbox.yahoo.com/catalog.php?datatype=s&did=70"> Yahoo Webscope S5 Dataset</a>
 
 ## Implementation:
