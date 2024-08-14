@@ -8,7 +8,7 @@ The project's objective is to utilize the AutoEncoder architecture to detect ano
   • timestamp: in the dataset, it is replaced by integers incremented by 1, which represents 1 hour worth of data.;
   • value: value recorded at the corresponding timestamp.; and
   • is_anomaly: Boolean indicating if the current value at the given timestamp is an anomaly or not.
-- Dataset Link: https://webscope.sandbox.yahoo.com/catalog.php?datatype=s&did=70
+- Dataset Link: <a href = "https://webscope.sandbox.yahoo.com/catalog.php?datatype=s&did=70"> Yahoo Webscope S5 Dataset</a>
 
 ## Implementation:
 
