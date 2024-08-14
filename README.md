@@ -8,43 +8,42 @@ The project's objective is to utilize the AutoEncoder architecture to detect ano
   • timestamp: in the dataset, it is replaced by integers incremented by 1, which represents 1 hour worth of data.;
   • value: value recorded at the corresponding timestamp.; and
   • is_anomaly: Boolean indicating if the current value at the given timestamp is an anomaly or not.
-- Dataset link: https://webscope.sandbox.yahoo.com/catalog.php?datatype=s&did=70
+- Dataset Link: https://webscope.sandbox.yahoo.com/catalog.php?datatype=s&did=70
 
 ## Implementation:
 
-- **Data Preprocessing:** 
+- **Data Preprocessing:**
+  - Imported and combined multiple CSV files containing time series data from the A1Benchmark dataset. The dataset was merged into a single DataFrame for easier manipulation and analysis.
+  - Verified the dataset for any missing values to ensure data quality and consistency before proceeding with further steps.
+  - Performed normalization on the dataset using the StandardScaler from Scikit-learn. This scaling ensures that the features have a mean of 0 and a standard deviation of 1. 
 
-- **Model Architecture:** 
+- **Model Architecture:**
 
-- **Training and Evaluating the VGG-13 Model:**
-  - **Training Process:** 
+  - Model 1: Dense AutoEncoder
 
-  - **Validation and Testing:**  
+    - This model is a straightforward autoencoder built with fully connected (dense) layers. It includes three encoding layers and three corresponding decoding layers. The model is designed to compress the input data into a smaller latent representation and then reconstruct the original data.
 
-- **Model Evaluation:** 
+  - Model 2: LSTM-based AutoEncoder
 
+    -  This model utilizes LSTM layers for both the encoder and decoder. It is designed to capture temporal dependencies in sequential data, making it well-suited for time series anomaly detection.
+
+  - Model 3 & 4: Enhanced AutoEncoder with Modified Hyperparameters
+    - An extension of Model 1, this version replaces ReLU with Tanh activation functions and increases the hidden units. The adjustments in activation functions and hidden layer dimensions aim to improve the model's learning capabilities. 
+   
+   - Building on Model 3, this architecture replaces Tanh with LeakyReLU activation functions and introduces Dropout layers for regularization. These changes help prevent overfitting and enhance the model's robustness. 
 
 ## Model Performance:
-- Basic Model: Initially developed the model without optimization techniques, serving as a baseline for further improvements.
-
-- Optimization Techniques:
-
-  - Regularization: Introduced L2 regularization by adding a weight decay parameter of 1e-5 to the optimizer. This technique helps prevent overfitting by penalizing large weights, which improved model generalization and increased accuracy to 92.00%.
-
-  - Dropout: Added dropout layers with a probability of 0.5 between the fully connected layers to reduce overfitting by randomly dropping neurons during training. Although this technique slightly decreased test accuracy to 90.84%, it enhanced model robustness.
-
-  - Early Stopping: Implemented early stopping to monitor validation loss and halt training if improvement ceased for a specified number of epochs (patience value of 4). The training concluded at epoch 19, with saved model weights showing a training accuracy of 92.71% and loss of 0.0018, and validation accuracy of 94.167% and loss of 0.0019. This approach significantly increased test accuracy to 93.02% and reduced test loss to 0.1995.
-
-  - Image Augmentation: Applied image augmentation techniques including resizing images to 64x64 pixels and random horizontal flipping with a probability of 0.5. Despite these alterations, test accuracy was 87.46% with a loss of 0.3422, indicating the impact of dataset variation on model performance.
+- Model 2 with LSTM architecture achieves the highest accuracy (93.93%), followed by Model 3 (93.63%), Model 1 (93.438%) and then Model 4 (93.05%).
+- Model 2 has the highest precision and recall, which indicates that it can correctly identify and capture anomalies. It also shows the highest number of true positives and lowest number of false negatives.
 
 
 ### Code:
 
-The complete project code is available in the <a href = "https://github.com/ShivanMathur/VGG-Image-Classification/blob/main/VGG_Image_Classification.ipynb"> VGG_Image_Classification.ipynb</a>.
+The complete project code is available in the <a href = "https://github.com/ShivanMathur/Anomaly-Detection-using-AutoEncoder/blob/main/Anomaly_Detection_using_AutoEncoder.ipynb"> Anomaly_Detection_using_AutoEncoder.ipynb </a>.
 
 ### Report:
 
-For a detailed project report, <a href = "https://github.com/ShivanMathur/VGG-Image-Classification/blob/main/report.pdf" > click here</a>.
+For a detailed project report, <a href = "https://github.com/ShivanMathur/Anomaly-Detection-using-AutoEncoder/blob/main/report.pdf" > click here</a>.
 
 ### Contact:
 For questions or feedback, please reach out to me at [shivanmthr18@gmail.com](mailto:shivanmthr18@gmail.com).
